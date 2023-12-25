@@ -116,6 +116,14 @@ export default function Home() {
   
         
       } catch (error) {
+        setContent(
+            <div>
+            {nameFeildForm(deleteStudent)}
+              <div className="alert alert-danger">
+               404 No resorce
+              </div>
+            </div>
+          );
         console.error('Error fetching rank:', error.message);
         setRankResult('Error fetching rank');
       }
@@ -127,7 +135,7 @@ export default function Home() {
     try {
         const nameInputValue = e.target.elements.name.value;
         const response = await axios.delete(`https://sat-y49v.onrender.com/api/result/student?name=${encodeURIComponent(nameInputValue)}`);
-        
+        console.log(response.status)
         if (response.status===200) {
         setContent(
           <div>
@@ -137,8 +145,17 @@ export default function Home() {
             </div>
           </div>
         );
-        }else{
+        }
+        else if(response.status===404){
+            console.log("here");
+            <div className="alert alert-danger">
+             no resorce with name ${nameInputValue}
+            </div>
+        }
+        else{
+            
           const errorData = await response.json();
+          console.log(errorData)
         console.error('Error fetching rank:', errorData.errorMessage);
         setRankResult('Error fetching rank: ' + errorData.errorMessage);
   
@@ -152,6 +169,14 @@ export default function Home() {
   
         
       } catch (error) {
+        setContent(
+            <div>
+            {nameFeildForm(deleteStudent)}
+              <div className="alert alert-danger">
+               404 No resorce
+              </div>
+            </div>
+          );
         console.error('Error fetching rank:', error.message);
         setRankResult('Error fetching rank');
       }
