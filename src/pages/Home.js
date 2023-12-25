@@ -272,8 +272,8 @@ export default function Home() {
   );
 
   return (
-    <div className="container-fluid m-2">
-      <div className="container-fluid row">
+    <div className="container-fluid m-2 ">
+      <div className="container-fluid row justify-content-center ">
         <div
           className={`border col-md-2 btn section1 ${activeSection === 1 ? 'active-section' : ''}`}
           onClick={() => showContent('Hello', 1)}
