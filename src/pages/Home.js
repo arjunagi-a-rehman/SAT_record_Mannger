@@ -47,6 +47,7 @@ export default function Home() {
         formData.forEach((value, key) => {
         formDataObject[key] = value;
         });
+        setContent(<p>Loading ...</p>)
       const response = await axios.post('https://sat-y49v.onrender.com/api/student/result', formDataObject);
 
       if (response.status===201) {
@@ -84,6 +85,7 @@ export default function Home() {
   const updateRecord= async (e) => {
     e.preventDefault();
     try {
+        setContent(<p>Loading ...</p>)
         const nameInputValue = e.target.elements.name.value;
         const scoreValue = parseInt(e.target.elements.score.value, 10);
         const response = await axios.patch(`https://sat-y49v.onrender.com/api/student/score/${encodeURIComponent(nameInputValue)}`, null, {
@@ -133,6 +135,7 @@ export default function Home() {
   const deleteStudent= async (e) => {
     e.preventDefault();
     try {
+        setContent(<p>Loading ...</p>)
         const nameInputValue = e.target.elements.name.value;
         const response = await axios.delete(`https://sat-y49v.onrender.com/api/result/student?name=${encodeURIComponent(nameInputValue)}`);
         console.log(response.status)
@@ -187,6 +190,7 @@ export default function Home() {
     e.preventDefault();
   
     try {
+      setContent(<p>Loading ...</p>)
       const nameInputValue = e.target.elements.name.value;
       const response = await fetch(`https://sat-y49v.onrender.com/api/student/rank?name=${encodeURIComponent(nameInputValue)}`);
 
@@ -231,6 +235,7 @@ export default function Home() {
 
   const fetchSection3Data = async () => {
     try {
+      setContent(<p>Loading ...</p>)
       const response = await axios.get('https://sat-y49v.onrender.com/api/sat/all');
       setContent(JSON.stringify(response.data, null, 2));
     } catch (error) {
@@ -242,7 +247,7 @@ export default function Home() {
     <form onSubmit={onSubmit}>
           <span class="input-group-text" id="inputGroup-sizing-default">Student Name</span>
           <input className='form-control' type="text" name="name" />
-          <button className="btn btn-secondary" type="submit">Submit</button>
+          <button className="btn btn-secondary m-1" type="submit">Submit</button>
           </form>
   );
   const updateForm = (onSubmit)=>(
@@ -251,7 +256,7 @@ export default function Home() {
           <input className='form-control' type="text" name="name" />
           <span class="input-group-text" id="inputGroup-sizing-default">Score</span>
           <input className='form-control' type="number" name="score" />
-          <button className="btn btn-secondary" type="submit">Submit</button>
+          <button className="btn btn-secondary m-1" type="submit">Submit</button>
           </form>
   );
   const renderForm = (onSubmit) => (
@@ -292,7 +297,7 @@ export default function Home() {
                   </label>
                   <input type="text" className="form-control" id="country" name="country" required />
                 </div>
-            <button className="btn btn-secondary" type="submit">Submit</button>
+            <button className="btn btn-secondary m-1" type="submit">Submit</button>
     </form>
   );
 
