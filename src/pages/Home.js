@@ -266,45 +266,52 @@ export default function Home() {
           </form>
   );
   const renderForm = (onSubmit) => (
-    <form onSubmit={onSubmit}>
-        <div className="mb-3">
-            <label htmlFor="name" className="form-label">
-                Name
-            </label>
-                  <input type="text" className="form-control" id="name" name="name" required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="score" className="form-label">
-                    Score (float)
-                  </label>
-                  <input type="number" step="0.1" className="form-control" id="score" name="score" required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="address" className="form-label">
-                    Address
-                  </label>
-                  <input type="text" className="form-control" id="address" name="address" required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="pincode" className="form-label">
-                    Pincode
-                  </label>
-                  <input type="text" className="form-control" id="pincode" name="pincode" required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="city" className="form-label">
-                    City
-                  </label>
-                  <input type="text" className="form-control" id="city" name="city" required />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="country" className="form-label">
-                    Country
-                  </label>
-                  <input type="text" className="form-control" id="country" name="country" required />
-                </div>
-            <button className="btn btn-secondary m-1" type="submit">Submit</button>
-    </form>
+<form onSubmit={onSubmit} className='border m-2'>
+  <div className="mb-3 row mx-2">
+    <div className="col-md-6 form-group">
+      <label htmlFor="name" className="form-label">
+        Name
+      </label>
+      <input type="text" className="form-control" id="name" name="name" required />
+    </div>
+    <div className="col-md-6 form-group" >
+      <label htmlFor="score" className="form-label">
+        Score (float)
+      </label>
+      <input type="number" step="0.1" className="form-control" id="score" name="score" required />
+    </div>
+  </div>
+  <div className="mb-3 mx-2">
+    <label htmlFor="address" className="form-label">
+      Address
+    </label>
+    <input type="text" className="form-control" id="address" name="address" required />
+  </div>
+  <div className="mb-3 row mx-2">
+    <div className="col-md-4">
+      <label htmlFor="pincode" className="form-label">
+        Pincode
+      </label>
+      <input type="text" className="form-control" id="pincode" name="pincode" required />
+    </div>
+    <div className="col-md-4">
+      <label htmlFor="city" className="form-label">
+        City
+      </label>
+      <input type="text" className="form-control" id="city" name="city" required />
+    </div>
+    <div className="col-md-4">
+      <label htmlFor="country" className="form-label">
+        Country
+      </label>
+      <input type="text" className="form-control" id="country" name="country" required />
+    </div>
+  </div>
+  <button className="btn btn-secondary m-1" type="submit">
+    Submit
+  </button>
+</form>
+
   );
 
   return (
