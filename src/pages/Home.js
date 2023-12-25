@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';  // Add this import
 
 export default function Home() {
   const [content, setContent] = useState('');
@@ -237,8 +239,12 @@ export default function Home() {
     try {
       setContent(<p>Loading ...</p>)
       const response = await axios.get('https://sat-y49v.onrender.com/api/sat/all');
-      setContent(JSON.stringify(response.data, null, 2));
-    } catch (error) {
+      setContent(
+        <SyntaxHighlighter language="json" style={prism}>
+          {JSON.stringify(response.data, null, 2)}
+        </SyntaxHighlighter>
+      );    } 
+      catch (error) {
       console.error('Error fetching data:', error.message);
       setContent('Error fetching data');
     }
