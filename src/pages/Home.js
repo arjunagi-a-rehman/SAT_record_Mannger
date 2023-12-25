@@ -47,7 +47,7 @@ export default function Home() {
         formData.forEach((value, key) => {
         formDataObject[key] = value;
         });
-      const response = await axios.post('http://localhost:8080/api/student/result', formDataObject);
+      const response = await axios.post('http://15.206.80.1:8080/api/student/result', formDataObject);
 
       if (response.status===201) {
 
@@ -86,7 +86,7 @@ export default function Home() {
     try {
         const nameInputValue = e.target.elements.name.value;
         const scoreValue = parseInt(e.target.elements.score.value, 10);
-        const response = await axios.patch(`http://localhost:8080/api/student/score/${encodeURIComponent(nameInputValue)}`, null, {
+        const response = await axios.patch(`http://15.206.80.1:8080/api/student/score/${encodeURIComponent(nameInputValue)}`, null, {
             params: {
               score: encodeURIComponent(scoreValue),
             },
@@ -126,7 +126,7 @@ export default function Home() {
     e.preventDefault();
     try {
         const nameInputValue = e.target.elements.name.value;
-        const response = await axios.delete(`http://localhost:8080/api/result/student?name=${encodeURIComponent(nameInputValue)}`);
+        const response = await axios.delete(`http://15.206.80.1:8080/api/result/student?name=${encodeURIComponent(nameInputValue)}`);
         
         if (response.status===200) {
         setContent(
@@ -163,7 +163,7 @@ export default function Home() {
   
     try {
       const nameInputValue = e.target.elements.name.value;
-      const response = await fetch(`http://localhost:8080/api/student/rank?name=${encodeURIComponent(nameInputValue)}`);
+      const response = await fetch(`http://15.206.80.1:8080/api/student/rank?name=${encodeURIComponent(nameInputValue)}`);
 
       
       if (response.ok) {
@@ -206,7 +206,7 @@ export default function Home() {
 
   const fetchSection3Data = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/sat/all');
+      const response = await axios.get('http://15.206.80.1:8080/api/sat/all');
       setContent(JSON.stringify(response.data, null, 2));
     } catch (error) {
       console.error('Error fetching data:', error.message);
