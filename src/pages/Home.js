@@ -307,7 +307,7 @@ export default function Home() {
           onClick={() => showContent('New Section', 5)}
           style={{ backgroundColor: 'orange' }}
         >
-          Section 5
+          Update score
         </div>
       </div>
       <div className="row mt-4">
