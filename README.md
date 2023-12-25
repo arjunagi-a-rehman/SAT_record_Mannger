@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployed link
+-App: https://sat-result-record-mannger.vercel.app/
+- API Doc: https://sat-y49v.onrender.com/swagger-ui/index.html
+
 ## Available Scripts
 
 In the project directory, you can run:
