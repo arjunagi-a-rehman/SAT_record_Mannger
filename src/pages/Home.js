@@ -217,7 +217,7 @@ export default function Home() {
     <form onSubmit={onSubmit}>
           <span class="input-group-text" id="inputGroup-sizing-default">Student Name</span>
           <input className='form-control' type="text" name="name" />
-          <button className="btn btn-secondary" type="submit">Get Rank</button>
+          <button className="btn btn-secondary" type="submit">Submit</button>
           </form>
   );
   const updateForm = (onSubmit)=>(
@@ -267,7 +267,7 @@ export default function Home() {
                   </label>
                   <input type="text" className="form-control" id="country" name="country" required />
                 </div>
-            <button className="btn btn-secondary" type="submit">Get Rank</button>
+            <button className="btn btn-secondary" type="submit">Submit</button>
     </form>
   );
 
